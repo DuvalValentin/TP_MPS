@@ -14,10 +14,12 @@ def init():
   list_potions[6]["arriere"]=False
   list_potions[2]["avant"]=False
   list_potions[6]["avant"]=False
+  #1 est tout à gauche et ne peux pas être une ortie
+  list_potions[1]["ortie"]=False
 
 # Poison à gauche des orties
 def OrtiesPoison():
-  for i in range(1,7):
+  for i in range(2,8):
     if(list_potions[i]["ortie"]):
       list_potions[i-1]["poison"]=True
 
@@ -54,7 +56,7 @@ def TrueFalse():
           etats[etat]=True
           break
 
-# Si toutes les potions d'un type ont été trouvés on passe les autres sont passés à false
+# Si toutes les potions d'un type ont été trouvés les autres sont passés à false pour ce type
 def foundedPotions():
   for etat in etats_possibles:
     foundedCount=0
@@ -75,7 +77,7 @@ def countTrue():
         countTrue+=1
   return countTrue
 
-# On lance les vérification nécessaire plusieurs fois
+# On lance les vérifications nécessaires plusieurs fois
 def loop():
   OrtiesPoison()
   twoAndSix()
