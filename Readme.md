@@ -2,26 +2,40 @@
 
 ## Lancer avec Docker
 
-### TP3
+### 1) Récupération de l'image docker
 
-Dans le répertoire du projet il faut entrer les commandes suivantes :
+#### Création à partir du Dockerfile
 
     docker build -t python-docker-build .
+
+#### Ou récupération avec Dockerhub
+
+    docker pull valentinduval/python-docker-build:latest
+
+### 2) Lancer l'image dans un container
+
     docker run --name python-docker-run -p 8888:8888  python-docker-build
 
-Un jupyter notebook sera alors lancé, il sera accessible via les liens affichés dans la console.
+Un jupyter-notebook sera alors lancé, il sera accessible via les liens affichés dans la console.
 
-Un fois le notebook accedé il faut lancer TP3_turtles.ipynb pour acceder au TP3.
+### 3) Exécuter le TP3
 
-Exécuter les cellules et regarder les tortues tracer leurs figures
+Se rendre à l'une des adresses indiquées dans la console, puis aller dans le dossier work/ puis lancer TP3_turtles.ipynb.
 
-### TP4
+Exécuter les cellules et regarder les tortues tracer leurs figures.
 
-Dans un autre terminal et toujours dans le répertoire du projet et en ayant effectué les commandes pour le TP3 lancer les commandes : 
+### 4) Lancer un terminal dans le container
+
+Dans un autre terminal et toujours dans le répertoire du projet et en ayant effectué les commandes pour le TP3 lancer la commande : 
 
     docker exec -it python-docker-run bash
+
+### 5) Exécuter le TP4
+
+Entrer les commandes
+
     cd work/
-    TP4_Potions.py
+    python3 TP4_Potions.py
 
 Le programme s'occupe de déterminer le contenu des potions.
 
